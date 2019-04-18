@@ -39,7 +39,10 @@ alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
 alias vi='vim -u /d/Projects/linux/scripts/.vimrc'
-alias grep='egrep'
+#alias grep='egrep'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 #alias sudo="cygstart --action=runas"
 if [[ $(uname -s) == "CYGWIN"* ]]; then alias sudo="cygstart --action=runas"; fi
 
