@@ -13,10 +13,6 @@ sudo add-apt-repository ppa:ppa:ubuntu-mozilla-security/ppa
 sudo add-apt-repository ppa:linuxuprising/java
 
 # dev software
-sudo apt install sourcetree
-sudo apt install python
-sudo apt install tree
+sudo apt update && apt install openssh* ssh vim initscripts build-essential git python tree vundle tmux sourcetree
+sudo apt install arp-scan ipcalc htop nmap ncat netcat net-tools curl dhclient iftop iptables iputils netsniff-ng ngrep ping route socat tcpdump telnet traceroute websocat wget Wireshark
 #sudo apt install google-backup-and-sync
-sudo apt install arp-scan,ipcalc,htop,nmap,ncat,net-tools
-sudo apt install vundle
-sudo apt install tmux
