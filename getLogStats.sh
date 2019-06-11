@@ -27,4 +27,3 @@ echo -e "\tOrders=$ORDERs\tNew Orders=$NEW_ORDERs\tFills=$FILLs\t\tRejects=$REJE
 echo; cat $TEMP_FILE_58
 rm -f $TEMP_FILE
 rm -f $TEMP_FILE_58
-

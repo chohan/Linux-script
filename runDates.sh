@@ -40,4 +40,3 @@ until [ $d == $END_DATE ]; do
   d=$(date -d "$d + 1 day" +%Y%m%d)
 
 done
-

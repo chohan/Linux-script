@@ -16,4 +16,3 @@ if [[ ! -z $pids ]]; then
     kill -9 $pid &2> /dev/null
   done
 fi
-
