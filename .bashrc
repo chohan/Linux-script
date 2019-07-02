@@ -33,15 +33,13 @@ alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 #alias cd2d='cd /cygdrive/d'
 #alias cd2e='cd /cygdrive/e'
 #alias cd2f='cd /cygdrive/f'
+#if [[ $(uname -s) == "CYGWIN"* ]]; then alias sudo="cygstart --action=runas"; fi
+#alias sudo="cygstart --action=runas"
 alias l='ls -lah --color=auto'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
-alias cd2c='cd /cygdrive/c'
-alias cd2d='cd /cygdrive/d'
-alias cd2e='cd /cygdrive/e'
-alias cd2f='cd /cygdrive/f'
 alias cd2p='cd /d/Projects'
-alias cd2Docs='cd /d/Documents'
-alias cd2Finance='cd /cygdrive/d/Documents/Finance'
+alias cd2Doc='cd /d/Documents'
+alias cd2Fin='cd /d/Finance'
 alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
@@ -50,8 +48,6 @@ alias vi='vim -u /d/Projects/Linux-script/.vimrc'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-#alias sudo="cygstart --action=runas"
-if [[ $(uname -s) == "CYGWIN"* ]]; then alias sudo="cygstart --action=runas"; fi
 
 # exports
 export DISPLAY=127.0.0.1:0
