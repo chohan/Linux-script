@@ -33,6 +33,8 @@ alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 #alias cd2d='cd /cygdrive/d'
 #alias cd2e='cd /cygdrive/e'
 #alias cd2f='cd /cygdrive/f'
+#if [[ $(uname -s) == "CYGWIN"* ]]; then alias sudo="cygstart --action=runas"; fi
+#alias sudo="cygstart --action=runas"
 alias l='ls -lah --color=auto'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 alias cd2p='cd /d/Projects'
