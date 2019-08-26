@@ -16,20 +16,19 @@ shopt -s no_empty_cmd_completion
 
 # aliases
 alias c='clear'
-alias f='find . -type f | xargs -d "\n" grep -n'
+alias f='find . -type f | xargs -d "\n" grep -In'
 alias g='egrep -Irn'
 alias ff='find . -type f | egrep'   # ff "(cpp|h)$" | xargs grep test
 alias fd='find . -type d | egrep'
-alias fc='ff -i "\.(c|h|cpp|hpp)$"|xargs -d "\n" egrep -n'
-alias fj='ff "\.java$"|xargs -d "\n" egrep -n'
-alias fp='ff "\.py$"  |xargs -d "\n" egrep -n'
-alias ftxt='ff "\.txt$" |xargs -d "\n" egrep -n'
-alias fxml='ff "\.xml$" |xargs -d "\n" egrep -n'
-alias fsh='ff "\.sh$"  |xargs -d "\n" egrep -n'
+alias fc='ff -i "\.(c|h|cpp|hpp)$"|xargs -d "\n" egrep -In'
+alias fj='ff "\.java$"|xargs -d "\n" egrep -In'
+alias fp='ff "\.py$"  |xargs -d "\n" egrep -In'
+alias ftxt='ff "\.txt$" |xargs -d "\n" egrep -In'
+alias fxml='ff "\.xml$" |xargs -d "\n" egrep -In'
+alias fsh='ff "\.sh$"  |xargs -d "\n" egrep -In'
 alias h='history|less'
 alias l='ls -lah' # --color auto'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
-alias l='ls -lah --color=auto'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 alias cd2p='cd /d/Projects'
 alias cd2Doc='cd /d/Documents'
@@ -50,12 +49,6 @@ export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
-
-
-# shells
-#function f1 {
-#	find . -name "$1" -exec grep $2 {} \; -print
-#}
 
 function fff { find . -type f | egrep "\.($2)$" | xargs egrep $1; }
 heta() { head -n $2 | tail -n $(($2-$1+1)); } 
