@@ -1,7 +1,7 @@
 [user]
 	name = Salah Chohan
 	email = shchohan@gmail.com
-	username = shchohan
+	username = chohan
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
