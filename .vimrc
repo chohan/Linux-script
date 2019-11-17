@@ -79,5 +79,5 @@ let g:xml_syntax_folding = 1
 
 " /usr/share/vim/vim74/colors/
 syntax on
-colorschem industry
+colorschem cobalt2
  "darkblue,desert,elflord,delek,evening,industry,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
