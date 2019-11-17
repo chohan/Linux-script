@@ -3,6 +3,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/d/Projects/Linux-script/.vim
 "call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -79,5 +80,5 @@ let g:xml_syntax_folding = 1
 
 " /usr/share/vim/vim74/colors/
 syntax on
-colorschem cobalt2
+colorschem torte
  "darkblue,desert,elflord,delek,evening,industry,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
