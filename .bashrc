@@ -42,6 +42,7 @@ alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
 alias vi='vim -u /d/Projects/Linux-script/.vimrc'
+alias sqlplus="export LD_LIBRARY_PATH=/d/Tools/Oracle/instantclient_19_5;/d/Tools/Oracle/instantclient_19_5/sqlplus"
 #alias grep='egrep'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
