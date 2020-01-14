@@ -57,3 +57,4 @@ export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$
 
 function fff { find . -type f | egrep "\.($2)$" | xargs egrep $1; }
 heta() { head -n $2 | tail -n $(($2-$1+1)); } 
+function k { kill -9 $(pgrep $1); }
