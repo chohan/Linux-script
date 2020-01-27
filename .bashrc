@@ -41,8 +41,8 @@ alias cd2Fin='cd /d/Finance'
 alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
-alias vi='vim -u /d/Projects/Linux-script/.vimrc'
-alias sqlplus="export LD_LIBRARY_PATH=/d/Tools/Oracle/instantclient_19_5;/d/Tools/Oracle/instantclient_19_5/sqlplus"
+#alias vi='vim -u /d/Projects/Linux-script/.vimrc'
+alias sqlplus="rlwrap sqlplus"
 #alias grep='egrep'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -52,6 +52,8 @@ alias egrep='egrep --color=auto'
 export DISPLAY=127.0.0.1:0
 export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
+export PATH=$PATH:/d/Tools/Oracle/instantclient_19_5
+export LD_LIBRARY_PATH=/d/Tools/Oracle/instantclient_19_5
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
 

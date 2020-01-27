@@ -59,10 +59,9 @@ set tabstop=2
 set et
 set bs=indent,eol,start
 set filetype=on
-set paste
+set hlsearch
 set number						" line numbers
 set ruler						" show line number in status bar
-filetype on						" set file type detection ON
 set exrc
 set secure
 set tabstop=2
@@ -70,6 +69,7 @@ set softtabstop=2
 set shiftwidth=2
 set noexpandtab
 set colorcolumn=110
+filetype on						" set file type detection ON
 highlight ColorColumn ctermbg=darkgray
 set makeprg=make\ -C\ ../build\ -j9		" make command to compile (:make)
 nnoremap <F4> :make!<cr>				" map make command to F4
