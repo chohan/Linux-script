@@ -53,7 +53,7 @@ export DISPLAY=127.0.0.1:0
 export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
 export PATH=$PATH:/d/Tools/Oracle/instantclient_19_5
-export LD_LIBRARY_PATH=/d/Tools/Oracle/instantclient_19_5
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/d/Tools/Oracle/instantclient_19_5
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
 
