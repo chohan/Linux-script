@@ -46,29 +46,47 @@ filetype plugin indent on    " required
 
 "############################################
 
+"no <down> <Nop>
+"no <left> <Nop>
+"no <right> <Nop>
+"ino <down> <Nop>
+"ino <left> <Nop>
+"ino <right> <Nop>
+"vno <down> <Nop>
+"vno <left> <Nop>
+"vno <right> <Nop>
+"vno <up> <Nop>
+
+" upper or lowercase the current word
+nmap uc gUiW
+nmap lc guiW
+
 set nocompatible
+set path=**
 set history=1000
 set showmatch
 set smartcase
 set ignorecase
 set incsearch
-set autoindent
-set smartindent
-set shiftwidth=2
-set tabstop=2
+set hlsearch
 set et
 set bs=indent,eol,start
 set filetype=on
-set hlsearch
-set number						" line numbers
+set number					" line numbers
 set ruler						" show line number in status bar
 set exrc
 set secure
+set autoindent
+set smartindent
+set expandtab				" convert tab character to spaces
 set tabstop=2
-set softtabstop=2
 set shiftwidth=2
-set noexpandtab
-set colorcolumn=110
+set softtabstop=2
+"set noexpandtab
+"set colorcolumn=110
+set paste
+set hidden					" allow switching buffers without saving
+set clipboard=unnamped		"
 filetype on						" set file type detection ON
 highlight ColorColumn ctermbg=darkgray
 set makeprg=make\ -C\ ../build\ -j9		" make command to compile (:make)
@@ -80,5 +98,7 @@ let g:xml_syntax_folding = 1
 
 " /usr/share/vim/vim74/colors/
 syntax on
-colorschem torte
- "cobalt2,darkblue,desert,elflord,delek,evening,industry,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
+colorscheme torte
+ "solarized,torte,cobalt2,darkblue,desert,elflord,delek,evening,industry,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
+"set background=dark
+
