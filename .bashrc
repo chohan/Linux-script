@@ -34,7 +34,6 @@ alias flog='ff "\.log$"  |xargs -d "\n" egrep -In'
 alias h='history|less'
 alias l='ls -lah' # --color auto'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
-alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 alias cd2Doc='cd /d/Documents'
 alias cd2Fin='cd /d/Finance'
 alias cd2p='cd /d/Projects'
@@ -54,6 +53,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # exports
+export TERM=xterm
 export DISPLAY=127.0.0.1:0
 export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
