@@ -1,6 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 " set rtp+=~/.vim/bundle/Vundle.vim
 " set rtp+=/d/Projects/Linux-script/.vim
@@ -31,7 +28,7 @@ filetype off                  " required
 
 " All of your Plugins must be added before the following line
 "call vundle#end()            " required
-filetype plugin indent on    " required
+" filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -57,9 +54,6 @@ filetype plugin indent on    " required
 "vno <right> <Nop>
 "vno <up> <Nop>
 
-" upper or lowercase the current word
-nmap uc gUiW
-nmap lc guiW
 
 set nocompatible
 set path=**
@@ -82,19 +76,31 @@ set expandtab				" convert tab character to spaces
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-"set noexpandtab
-"set colorcolumn=110
+set noexpandtab
+set colorcolumn=110
 set paste
 set hidden					" allow switching buffers without saving
 set clipboard=unnamped		"
 filetype on						" set file type detection ON
 highlight ColorColumn ctermbg=darkgray
 set makeprg=make\ -C\ ../build\ -j9		" make command to compile (:make)
+
+" mappings
+":nmap - Display normal mode maps
+":imap - Display insert mode maps
+":vmap - Display visual and select mode maps
+":smap - Display select mode maps
+":xmap - Display visual mode maps
+":cmap - Display command-line mode maps
+":omap - Display operator pending mode maps
+
+nmap uc gUiW				" to upper case
+nmap lc guiW				" to lower case
 nnoremap <F4> :make!<cr>				" map make command to F4
 nnoremap <F5> :!./my_great_program<cr>	" map F5 to run
 
 
-let g:xml_syntax_folding = 1
+"let g:xml_syntax_folding = 1
 
 " /usr/share/vim/vim74/colors/
 syntax on

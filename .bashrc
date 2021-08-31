@@ -60,15 +60,19 @@ alias cd2d='cd /d/Projects/Docker'
 alias cd2tc='cd /d/Test/C'
 alias cd2tp='cd /d/Test/P'
 alias cd2tsql='cd /d/Test/sql'
+alias ..='cd ..'
 alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
+alias chs='chmod +x'
+alias ddu='du -sh * | sort -hr | head -20'
 #alias vi='vim -u /d/Projects/Linux-script/.vimrc'
 alias vimdiff="vimdiff -c 'set diffopt+=iwhite'"
 #alias grep='egrep'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias py='winpty /c/Python/Python37/python'
 
 # external folders
 #alias host-c='sshfs salah@${HOST}:/c/ /c'
@@ -76,7 +80,11 @@ alias egrep='egrep --color=auto'
 # DB alias
 alias sqlplus="rlwrap sqlplus"
 alias db-oracle='sqlplus accs/accs@${ORACLE_HOST}:11521/xe'
+alias ft='echo "select table_name from user_tables;"|db-oracle|egrep -i'
+function ftc { echo "SELECT substr(table_name,1,15), substr(column_name,1,15) FROM all_table_columns WHERE owner='v26' and regexp_like(table_name, '^cdm|dm.+', 'i') and regexp_like(column_name, '$1', 'i');" | db-orable | egrep -v "SUBSTR|\-\-\-\-"; }; export -f ftc
 
-function fff { find . -type f | egrep "\.($2)$" | xargs egrep $1; }
-heta() { head -n $2 | tail -n $(($2-$1+1)); } 
-function k { kill -9 $(pgrep $1); }
+function fif { find . -type f | egrep "\.($2)$" | xargs egrep $1; }; export -f fif
+heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta
+function k { kill -9 $(pgrep $1); }; export -f k
+generateqr () { printf "$@" | curl -F-=\<- qrenco.de; }; export -f generateqr
+
