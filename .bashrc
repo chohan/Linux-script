@@ -22,8 +22,6 @@ export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
 export HISTSIZE=1000
 export HISTTIMEFORMAT="%Y%m%d-%H%M%S  "
-export PATH=$PATH:/d/Tools/Oracle/instantclient_19_5
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/d/Tools/Oracle/instantclient_19_5
 #export CLASSPATH=
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
@@ -87,4 +85,6 @@ function fif { find . -type f | egrep "\.($2)$" | xargs egrep $1; }; export -f f
 heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta
 function k { kill -9 $(pgrep $1); }; export -f k
 generateqr () { printf "$@" | curl -F-=\<- qrenco.de; }; export -f generateqr
+
+/c/init.sh
 
