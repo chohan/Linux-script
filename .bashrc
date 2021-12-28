@@ -76,10 +76,9 @@ alias py='winpty /c/Python/Python37/python'
 #alias host-c='sshfs salah@${HOST}:/c/ /c'
 
 # DB alias
-alias sqlplus="rlwrap sqlplus"
-alias db-oracle='sqlplus accs/accs@${ORACLE_HOST}:11521/xe'
+alias db-oracle='sql accs/accs@${ORACLE_HOST}:11521/xe_accs'
 alias ft='echo "select table_name from user_tables;"|db-oracle|egrep -i'
-function ftc { echo "SELECT substr(table_name,1,15), substr(column_name,1,15) FROM all_table_columns WHERE owner='v26' and regexp_like(table_name, '^cdm|dm.+', 'i') and regexp_like(column_name, '$1', 'i');" | db-orable | egrep -v "SUBSTR|\-\-\-\-"; }; export -f ftc
+function ftc { echo "SELECT substr(table_name,1,15), substr(column_name,1,15) FROM all_tab_columns WHERE owner='v26' and regexp_like(table_name, '^cdm|dm.+', 'i') and regexp_like(column_name, '$1', 'i');" | db-oracle | egrep -v "SUBSTR|\-\-\-\-"; }; export -f ftc
 
 function fif { find . -type f | egrep "\.($2)$" | xargs egrep $1; }; export -f fif
 heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta

@@ -68,8 +68,8 @@ set bs=indent,eol,start
 set filetype=on
 set number					" line numbers
 set ruler						" show line number in status bar
-set exrc
-set secure
+"set exrc
+"set secure
 set autoindent
 set smartindent
 set expandtab				" convert tab character to spaces
@@ -83,7 +83,7 @@ set hidden					" allow switching buffers without saving
 set clipboard=unnamped		"
 filetype on						" set file type detection ON
 highlight ColorColumn ctermbg=darkgray
-set makeprg=make\ -C\ ../build\ -j9		" make command to compile (:make)
+"set makeprg=make\ -C\ ../build\ -j9		" make command to compile (:make)
 
 " mappings
 ":nmap - Display normal mode maps
@@ -99,10 +99,6 @@ nmap lc guiW				" to lower case
 nnoremap <F4> :make!<cr>				" map make command to F4
 nnoremap <F5> :!./my_great_program<cr>	" map F5 to run
 
-
-"let g:xml_syntax_folding = 1
-
-" /usr/share/vim/vim74/colors/
 syntax on
 colorscheme torte
  "solarized,torte,cobalt2,darkblue,desert,elflord,delek,evening,industry,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
