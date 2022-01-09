@@ -10,3 +10,5 @@ alias ft=select table_name from user_tables where regexp_like(table_name, '.*' |
 alias ftc=Select substr(table_name,1,25) Tab, substr(column_name,1,25) Col from all_tab_columns where regexp_like(column_name, '.*' || :col || '.*', 'i');
 alias tc=Select count(*) from track_message;
 alias tracks=Select * from track_message where timestamp >= to_timestamp(:t1, 'YYYYMMDD HH24:MI') AND timestamp < to_timestamp(:t2, 'YYYYMMDD HH24:MI');
+alias accs_link=CREATE DATABASE LINK accs_link CONNECT TO accs IDENTIFIED BY accs USING '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.132)(PORT=11521))(CONNECT_DATA=(SERVICE_NAME=xe_accs)))';
+

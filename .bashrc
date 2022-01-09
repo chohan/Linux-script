@@ -85,5 +85,5 @@ heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta
 function k { kill -9 $(pgrep $1); }; export -f k
 generateqr () { printf "$@" | curl -F-=\<- qrenco.de; }; export -f generateqr
 
-/c/init.sh
+source /c/init.sh
 
