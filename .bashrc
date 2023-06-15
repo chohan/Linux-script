@@ -22,13 +22,14 @@ export COLUMNS=2000
 export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$"
 export HISTSIZE=1000
 export HISTTIMEFORMAT="%Y%m%d-%H%M%S  "
+export HISTIGNORE="pwd:clear:cls:cd:ls:man:history"
 #export CLASSPATH=
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
 
 # aliases
 alias c='clear'
-alias f='find . -type f | xargs -d "\n" grep -In'
+alias f='find . -type f | xargs -d "\n" egrep -In'
 alias g='egrep -Irn'
 alias ff='find . -type f | egrep'   # ff "(cpp|h)$" | xargs grep test
 alias ffd='find / -path /c -prune -o -path /d -prune -o -path /e -prune -o -name'
@@ -44,12 +45,15 @@ alias fsql='ff "\.sql$"  |xargs -d "\n" egrep -In'
 alias ftxt='ff "\.txt$" |xargs -d "\n" egrep -In'
 alias fxml='ff "\.xml$" |xargs -d "\n" egrep -In'
 alias flog='ff "\.log$"  |xargs -d "\n" egrep -In'
+alias flogECF='ff "\.log$"  |xargs -d "\n" egrep -In "ERROR|CRITICAL|FATAL"'
 alias h='history|less'
 alias ls='ls --color=auto'
 alias l='ls -lahr'
+alias lt='ls -latr'
 alias ld='ls -lahrd */'
 alias lf='ls -lahr|grep -v ^d'
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
+alias grepip='egrep "([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})"|egrep -v "127.0.0.1"'
 alias cd2Doc='cd /d/Documents'
 alias cd2Fin='cd /d/Finance'
 alias cd2p='cd /d/Projects'
@@ -84,6 +88,23 @@ function fif { find . -type f | egrep "\.($2)$" | xargs egrep $1; }; export -f f
 heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta
 function k { kill -9 $(pgrep $1); }; export -f k
 generateqr () { printf "$@" | curl -F-=\<- qrenco.de; }; export -f generateqr
+function run_remote() {
+  for S in $SERVER_SET
+  do
+    echo -e "\n########## $S ##########"
+    ssh -o "StrictHostKeyChecking no" -q $S "$@"
+  done
+}; export -f run_remote
+function run_remote_pass() {
+  echo "Enter Password: "
+  read -s PASS
+
+  for S in $SERVER_SET
+  do
+    echo -e "\n########## $S ##########"
+    sshpass -p $PASS ssh -o "StrictHostKeyChecking no" -q $S "$@"
+  done
+}; export -f run_remote_pass
 
 source /c/init.sh
 

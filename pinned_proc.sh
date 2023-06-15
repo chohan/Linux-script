@@ -1,0 +1,1 @@
+ps -efaL|grep "^gus"|tr -s " "|cut -d" " -f4|while read LWP; do taskset -cp $LWP; done|egrep -v [-,]|sed s/\'s//g|awk '{print $2}'|while read pid; do ps -efaL|grep $pid; done|tr -s " "|cut -d" " -f1,2,10-|grep "^gus"|sort -u
