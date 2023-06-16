@@ -52,6 +52,7 @@ alias l='ls -lahr'
 alias lt='ls -latr'
 alias ld='ls -lahrd */'
 alias lf='ls -lahr|grep -v ^d'
+alias IP="ip a|grep inet|fgrep -v '127.0.0.1'"
 alias ipgrep='grep -o "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}"'
 alias grepip='egrep "([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})"|egrep -v "127.0.0.1"'
 alias cd2Doc='cd /d/Documents'
@@ -75,7 +76,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias py='winpty /c/Python/Python37/python'
-
+alias pcap2fix="strings|sed -z 's/\n/;/g'|sed 's/;8=FIX.4./\n8=FIX.4./g'|sed 's/;10=.*/;10=000/g'"
 # external folders
 #alias host-c='sshfs salah@${HOST}:/c/ /c'
 
