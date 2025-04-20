@@ -1,3 +1,13 @@
+#!/bin/bash
+#############################################################################################################
+#
+# Desc: Salah's .bashrc
+# Auth: Salah Chohan
+# Date: 01-Jul-2000
+# Use:  ~/.bashrc
+#
+#############################################################################################################
+
 #set -o errexit
 #set -o errtrace
 #trap 'exit "script ${0} aborted at ${LINENO}"; exit 1' ERR
@@ -23,6 +33,7 @@ export PS1="\[\t\e[1;32m\]\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$
 export HISTSIZE=1000
 export HISTTIMEFORMAT="%Y%m%d-%H%M%S  "
 export HISTIGNORE="pwd:clear:cls:cd:ls:man:history"
+export TMOUT=28800
 #export CLASSPATH=
 #export GREP_OPTIONS='--color=auto'
 #export GREP_COLOR='mt=1;34'
@@ -44,6 +55,8 @@ alias fsh='ff "\.sh$"  |xargs -d "\n" egrep -In'
 alias fsql='ff "\.sql$"  |xargs -d "\n" egrep -In'
 alias ftxt='ff "\.txt$" |xargs -d "\n" egrep -In'
 alias fxml='ff "\.xml$" |xargs -d "\n" egrep -In'
+alias fpom='ff "pom.xml$" |xargs -d "\n" egrep -In'
+alias fprop='ff "\.properties$" |xargs -d "\n" egrep -In'
 alias flog='ff "\.log$"  |xargs -d "\n" egrep -In'
 alias flogECF='ff "\.log$"  |xargs -d "\n" egrep -In "ERROR|CRITICAL|FATAL"'
 alias h='history|less'
@@ -67,6 +80,7 @@ alias ..='cd ..'
 alias cd3='cd ../../..'
 alias cd4='cd ../../../..'
 alias cd5='cd ../../../../..'
+alias cd6='cd3;cd3'
 alias chs='chmod +x'
 alias ddu='du -sh * | sort -hr | head -20'
 #alias vi='vim -u /d/Projects/Linux-script/.vimrc'
@@ -85,27 +99,34 @@ alias db-oracle='sql accs/accs@${ORACLE_HOST}:11521/xe_accs'
 alias ft='echo "select table_name from user_tables;"|db-oracle|egrep -i'
 function ftc { echo "SELECT substr(table_name,1,15), substr(column_name,1,15) FROM all_tab_columns WHERE owner='v26' and regexp_like(table_name, '^cdm|dm.+', 'i') and regexp_like(column_name, '$1', 'i');" | db-oracle | egrep -v "SUBSTR|\-\-\-\-"; }; export -f ftc
 
-function fif { find . -type f | egrep "\.($2)$" | xargs egrep $1; }; export -f fif
+# function
+function fif { find . -type f | egrep "($2)$" | xargs egrep $1; }; export -f fif
 heta() { head -n $2 | tail -n $(($2-$1+1)); }; export -f heta
 function k { kill -9 $(pgrep $1); }; export -f k
 generateqr () { printf "$@" | curl -F-=\<- qrenco.de; }; export -f generateqr
-function run_remote() {
-  for S in $SERVER_SET
+function rr() {			# run remote e.g. rr "hostname;date" $SERVER_SET
+  cmd=$1
+  for S in "${@:2}"
   do
     echo -e "\n########## $S ##########"
-    ssh -o "StrictHostKeyChecking no" -q $S "$@"
+    ssh -o "StrictHostKeyChecking no" -q $S "$cmd"
   done
-}; export -f run_remote
-function run_remote_pass() {
+}; export -f rr
+function rrp() {		# run remote e.g. rrp "hostname;date" $SERVER_SET
+  cmd=$1
   echo "Enter Password: "
   read -s PASS
 
-  for S in $SERVER_SET
+  for S in "${@:2}"
   do
     echo -e "\n########## $S ##########"
-    sshpass -p $PASS ssh -o "StrictHostKeyChecking no" -q $S "$@"
+    sshpass -p $PASS ssh -o "StrictHostKeyChecking no" -q $S "$cmd"
   done
-}; export -f run_remote_pass
+}; export -f rrp
+function MCR() { onload iperf -s -u -i 1 -B $1 -p $2; }; export -f MCR
+function MCT() { onload ipert -c $1 -p $2 -u -T 1 -t 10 -i 1; }; export -f MCT
 
+#source ~/script/servers.sh
+#source ~/script/dbConfig.sh
 source /c/init.sh
 
